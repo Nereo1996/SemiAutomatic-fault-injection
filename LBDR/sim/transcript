@@ -1,0 +1,108 @@
+# //  ModelSim SE-64 2019.4 Oct 15 2019 Linux 5.8.0-45-generic
+# //
+# //  Copyright 1991-2019 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+do sim_LBDR.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vlog 2019.4 Compiler 2019.10 Oct 15 2019
+# Start time: 11:42:41 on Apr 08,2021
+# vlog -reportprogress 300 -work work -vopt "+incdir+../include" -nocovercells ../rtl/LBDR.v 
+# -- Compiling module LBDR
+# 
+# Top level modules:
+# 	LBDR
+# End time: 11:42:41 on Apr 08,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2019.4 Compiler 2019.10 Oct 15 2019
+# Start time: 11:42:41 on Apr 08,2021
+# vlog -reportprogress 300 -work work -vopt "+incdir+../include" -nocovercells ../tb/LBDR_tb.v 
+# -- Compiling module LBDR_tb
+# 
+# Top level modules:
+# 	LBDR_tb
+# End time: 11:42:41 on Apr 08,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -t 1ns -voptargs="+acc" work.LBDR_tb 
+# Start time: 11:42:41 on Apr 08,2021
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.LBDR_tb(fast)
+# Loading work.LBDR(fast)
+# TIME:0 *********STATUS:: Nport:x, Eport:x, Wport:x, Sport:x, Lport:x
+# TIME:5 *********STATUS:: Nport:0, Eport:0, Wport:0, Sport:0, Lport:0
+# TIME:30 HARD_RESET:: Rxy_rst: 111100, Cx_rst:1110, cur_addr_rst:1
+# TIME:30 HARD_RESET:: Nport:0, Eport:0, Wport:0, Sport:0, Lport:0
+# TIME:40 TASK WRITE: Flit:1, d_addr:8 
+# 
+# TIME:75 *********STATUS:: Nport:0, Eport:0, Wport:1, Sport:0, Lport:0
+# TIME:90 TASK WRITE: Flit:10, d_addr:4 
+# 
+# TIME:110 TASK WRITE: Flit:10, d_addr:1 
+# 
+# TIME:130 TASK WRITE: Flit:10, d_addr:9 
+# 
+# TIME:150 TASK WRITE: Flit:10, d_addr:3 
+# 
+# TIME:160 TASK WRITE: Flit:100, d_addr:d 
+# 
+# TIME:175 *********STATUS:: Nport:0, Eport:0, Wport:0, Sport:0, Lport:0
+# TIME:210 HARD_RESET:: Rxy_rst: 111100, Cx_rst:1010, cur_addr_rst:0
+# TIME:210 HARD_RESET:: Nport:0, Eport:0, Wport:0, Sport:0, Lport:0
+# TIME:220 TASK WRITE: Flit:1, d_addr:8 
+# 
+# TIME:255 *********STATUS:: Nport:0, Eport:0, Wport:0, Sport:1, Lport:0
+# TIME:270 TASK WRITE: Flit:10, d_addr:d 
+# 
+# TIME:290 TASK WRITE: Flit:10, d_addr:5 
+# 
+# TIME:310 TASK WRITE: Flit:10, d_addr:2 
+# 
+# TIME:330 TASK WRITE: Flit:10, d_addr:1 
+# 
+# TIME:340 TASK WRITE: Flit:100, d_addr:d 
+# 
+# TIME:355 *********STATUS:: Nport:0, Eport:0, Wport:0, Sport:0, Lport:0
+# TIME:390 HARD_RESET:: Rxy_rst: 111100, Cx_rst:1011, cur_addr_rst:4
+# TIME:390 HARD_RESET:: Nport:0, Eport:0, Wport:0, Sport:0, Lport:0
+# TIME:400 TASK WRITE: Flit:1, d_addr:8 
+# 
+# TIME:435 *********STATUS:: Nport:0, Eport:0, Wport:0, Sport:1, Lport:0
+# TIME:450 TASK WRITE: Flit:10, d_addr:6 
+# 
+# TIME:470 TASK WRITE: Flit:10, d_addr:d 
+# 
+# TIME:490 TASK WRITE: Flit:10, d_addr:d 
+# 
+# TIME:510 TASK WRITE: Flit:10, d_addr:c 
+# 
+# TIME:520 TASK WRITE: Flit:100, d_addr:9 
+# 
+# TIME:535 *********STATUS:: Nport:0, Eport:0, Wport:0, Sport:0, Lport:0
+# TIME:570 HARD_RESET:: Rxy_rst: 111100, Cx_rst:1011, cur_addr_rst:8
+# TIME:570 HARD_RESET:: Nport:0, Eport:0, Wport:0, Sport:0, Lport:0
+# TIME:580 TASK WRITE: Flit:1, d_addr:8 
+# 
+# TIME:615 *********STATUS:: Nport:0, Eport:0, Wport:0, Sport:0, Lport:1
+# TIME:630 TASK WRITE: Flit:10, d_addr:6 
+# 
+# TIME:650 TASK WRITE: Flit:10, d_addr:5 
+# 
+# TIME:670 TASK WRITE: Flit:10, d_addr:a 
+# 
+# TIME:690 TASK WRITE: Flit:10, d_addr:5 
+# 
+# TIME:700 TASK WRITE: Flit:100, d_addr:7 
+# 
+# TIME:715 *********STATUS:: Nport:0, Eport:0, Wport:0, Sport:0, Lport:0
+# ** Note: $finish    : ../tb/LBDR_tb.v(155)
+#    Time: 770 ns  Iteration: 0  Instance: /LBDR_tb
+# 1
+# Break in NamedBeginStat SIM at ../tb/LBDR_tb.v line 155
