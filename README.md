@@ -1,9 +1,13 @@
-# FAULT INJECTION
-Is a library that allow you to force a bit .
-you can do fault injection and mutant injection.
+# INJECTION
+Faut injection is a library written in verilog that allows to inject faults on variables (fault injection) and operators (mutant injection).
+
+## USAGE
 
 
-## TUTORIAL
+
+
+
+
 1-add this library in your workspace.
 2-include this library in your module
 3-generate the function with the command 'GENERATE_FAULT_INJECTION(*,*)
