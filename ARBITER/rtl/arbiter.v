@@ -13,6 +13,8 @@
 *********************/
 `include "../include/parameters.v"
 `include "../include/state_defines.v"
+`include "../include/fault_injection.v"
+
 
 module arbiter(clk, rst,
                 Lflit_id, Nflit_id, Eflit_id, Wflit_id, Sflit_id,
@@ -33,6 +35,10 @@ module arbiter(clk, rst,
   reg       Lruntimer, Nruntimer, Eruntimer, Wruntimer, Sruntimer;
   
   wire      Ltimesup, Ntimesup, Etimesup, Wtimesup, Stimesup;
+  `GENERATE_MUTANT_INJECTION_RELATIONAL_FUNCTION(rel_inj1, 1)
+  `GENERATE_FAULT_INJECTION_FUNCTION(faultinj5, 5)
+  integer f,r,s;
+  reg [127:0] captured_data;
     
   // Timer module that runs for the entire packet length
   timer Ltimer (clk, rst, Lflit_id, Llength, Lruntimer, Ltimesup);
@@ -46,8 +52,11 @@ module arbiter(clk, rst,
   always @ (posedge clk) begin
   if(rst)
     currentstate <= `IDLE;
-  else
-    currentstate <= nextstate;
+  else begin
+    //currentstate <= nextstate;
+    currentstate <= faultinj5(nextstate,1,5,"nextstate");
+  end
+    
   end
   
   // Next state decoder Logic
@@ -56,10 +65,12 @@ module arbiter(clk, rst,
     case(currentstate)
       `IDLE:
         begin
-          if(Lreq == 1) begin
+          //if(Lreq == 1) begin
+            if(rel_inj1(Lreq,1,6,10,4)) begin
             nextstate = `GRANT_L;
           end
-          else if(Nreq == 1) begin
+          //else if(Nreq == 1) begin
+            else if(rel_inj1(Nreq,1,11,15,4)) begin
             nextstate = `GRANT_N;
           end
           else if(Ereq == 1) begin
