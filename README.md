@@ -1,4 +1,4 @@
-# SEMIAUTOMATIC INJECTION
+# SEMIAUTOMATIC FAULT INJECTION
 Faut injection is a library written in verilog that allows to inject faults on variables (fault injection) and operators (mutant injection).
 
 ## USAGE
