@@ -25,12 +25,12 @@
 
 
 
-
+mkdir "../VCD"
 touch "fp.v"
 touch "../output1.txt"
 touch "../output.txt"
 
-for {set i 0} {$i<14} {incr i} {
+for {set i 0} {$i<16} {incr i} {
 
 	# modifico fp 
 	set data "`define fp $i"

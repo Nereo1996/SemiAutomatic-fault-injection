@@ -8,10 +8,17 @@
 		input [WIDTH-1:0] var; \
 		input [7:0] toggle_start; \
 		input [7:0] toggle_end; \
+    input [128:0] port_name; \
 		reg [WIDTH-1:0] mask; \
+    integer f; \
 		begin \
-			mask = (`fp < toggle_start || `fp >= toggle_end) \
+			mask = (`fp < toggle_start && `fp > toggle_end) \
 				? 0 : (1 << (`fp - toggle_start)); \
+        if(`fp >= toggle_start  && `fp <= toggle_end) begin \
+              f = $fopen("../output1.txt","a"); \
+                  $fwrite(f,"%d ; F ; %s \n", `fp, port_name); \
+                  $fclose(f); \
+        end \
 			FUN_NAME = var ^ mask; \
 		end \
 	endfunction
@@ -26,7 +33,7 @@
 		input [7:0] toggle_end; \
 		input [4:0] oper; \
 		reg    [3:0] flag; \
-    integer i; \
+    integer i, f; \
 		begin \
 			for (i=0; i<4; i=i+1) begin\
       			if(i>= oper) begin \
@@ -36,7 +43,12 @@
         			flag[i] = 0; \
       			end \
       end \
-      		if (`fp < toggle_start || `fp >= toggle_end) begin \
+      if(`fp >= toggle_start  && `fp <= toggle_end) begin \
+              f = $fopen("../output1.txt","a"); \
+                  $fwrite(f,"%d ; M ; Nan \n", `fp); \
+                  $fclose(f); \
+        end \
+      		if (`fp < toggle_start && `fp > toggle_end) begin \
       		  case (oper) \
       			 8'd0: FUN_NAME = var1 + var2; \
       			 8'd1: FUN_NAME = var1 - var2; \
@@ -85,7 +97,7 @@
 		input [7:0] toggle_end; \
 		input [4:0] oper; \
 		reg    [2:0] flag; \
-    integer i; \
+    integer i, f; \
 		begin \
 			for (i=0; i<3; i=i+1) begin \
       			if(i>= oper) begin \
@@ -95,7 +107,12 @@
         			flag[i] = 0; \
       			end \
       end \
-      		if (`fp < toggle_start || `fp >= toggle_end) begin \
+      if(`fp >= toggle_start  && `fp <= toggle_end) begin \
+              f = $fopen("../output1.txt","a"); \
+                  $fwrite(f,"%d ; M ; Nan \n", `fp); \
+                  $fclose(f); \
+        end \
+      		if (`fp < toggle_start && `fp > toggle_end) begin \
       			case (oper) \
       				8'd0: FUN_NAME = var1 & var2; \
       				8'd1: FUN_NAME = var1 | var2; \
@@ -135,7 +152,7 @@
 		input [7:0] toggle_end; \
 		input [4:0] oper; \
 		reg    [5:0] flag; \
-    integer i; \
+    integer i, f; \
 		begin \
 			for (i=0; i<6; i=i+1) begin\
       			if(i>= oper) begin \
@@ -145,7 +162,12 @@
         			flag[i] = 0; \
       			end \
       end \
-      		if (`fp < toggle_start || `fp >= toggle_end) begin \
+        if(`fp >= toggle_start  && `fp <= toggle_end) begin \
+              f = $fopen("../output1.txt","a"); \
+                  $fwrite(f,"%d ; M ; NaN \n", `fp); \
+                  $fclose(f); \
+        end \
+      		if (`fp < toggle_start && `fp > toggle_end) begin \
       			case (oper) \
       				8'd0: FUN_NAME = var1 > var2; \
       				8'd1: FUN_NAME = var1 >= var2; \
